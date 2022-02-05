@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Question Page</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <div class="container">
+        <form action="/my/question-upload" method="POST">
+            <div>
+                <table class="table" id="questions">
+                    <thead>
+                      <tr>
+                        <th style="width: 5%;" scope="col">Question Number</th>
+                        <th style="width: 5%;" scope="col">Question Section</th>
+                        <th style="width: 70%;" scope="col">Question</th>
+                        <th style="width: 5%;" scope="col">Marks</th>
+                        <th style="width: 15%;" scope="col">Action</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <% for(let i=0;i<data.length;i++){ %> 
+                      <tr>
+                        <th style="width: 5%;" scope="row" ><input type="text" name="qstn_number[]" value="<%= data[i].qstn_number %>" readonly="readonly"> </th>
+                        <td style="width: 5%;"><input type="text" name="qstn_section[]" value="<%= data[i].qstn_section %>"></td>
+                        <td style="width: 70%;"><textarea name="qstn[]" id="qstn[]" cols="60" rows="2"><%= data[i].qstn %></textarea></td>
+                        <td style="width: 5%;"><input type="number" name="qstn_marks[]" value="<%= data[i].qstn_marks %>"></td>
+                        <td style="width: 7.5%;"><a onclick="" class="btn btn-danger">Delete</a></td>
+                        <td style="width: 7.5%;"><a onclick="" class="btn btn-primary">Add New</a></td>
+                      </tr>
+                      <% } %> 
+                    </tbody>
+                  </table>
+            </div>
+
+            <button type="submit" class="btn btn-primary mb-5">Submit Question</button>
+        </form>
+    </div>
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+      
+    </script>
+  
+  </body>
+</html>
